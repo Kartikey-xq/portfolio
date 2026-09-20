@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import type { AssetManifest } from '../types'
 
-const MANIFEST_URL = '/portfolio-assets/manifest.json'
+const getBaseUrl = () => {
+  const base = import.meta.env.BASE_URL || '/'
+  return base.endsWith('/') ? base : `${base}/`
+}
+
+const MANIFEST_URL = `${getBaseUrl()}portfolio-assets/manifest.json`
 
 // Probe common filename patterns if manifest is empty or fails
 async function probeImage(url: string): Promise<boolean> {
@@ -134,7 +139,7 @@ export function usePortfolioAssets() {
           const num = String(i).padStart(2, '0')
           for (const ext of extensions) {
             const filename = `${prefix}-${num}.${ext}`
-            const testUrl = `/portfolio-assets/images/${filename}`
+            const testUrl = `${getBaseUrl()}portfolio-assets/images/${filename}`
             const exists = await probeImage(testUrl)
             if (exists) {
               foundImages.push(filename)
@@ -154,7 +159,7 @@ export function usePortfolioAssets() {
       for (const vc of videoConfigs) {
         for (const ext of vc.exts) {
           const filename = `${vc.prefix}.${ext}`
-          const testUrl = `/portfolio-assets/videos/${filename}`
+          const testUrl = `${getBaseUrl()}portfolio-assets/videos/${filename}`
           const exists = await probeVideo(testUrl)
           if (exists) {
             foundVideos.push(filename)
@@ -198,12 +203,12 @@ export function usePortfolioAssets() {
       return manifest.images
         .filter((file) => regex.test(file))
         .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
-        .map((file) => `/portfolio-assets/images/${file}`)
+        .map((file) => `${getBaseUrl()}portfolio-assets/images/${file}`)
     },
     getVideo: (prefix: string) => {
       const regex = new RegExp(`^${prefix}`, 'i')
       const match = manifest.videos.find((file) => regex.test(file))
-      return match ? `/portfolio-assets/videos/${match}` : null
+      return match ? `${getBaseUrl()}portfolio-assets/videos/${match}` : null
     },
     liveStoreUrl: manifest.liveStoreUrl
   }
