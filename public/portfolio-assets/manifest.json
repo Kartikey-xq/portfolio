@@ -1,7 +1,15 @@
 {
   "images": [
-    "01-custom-sections-built-01.png"
+    "01-custom-sections-built-01.png",
+    "02-requirement-understanding-01.png",
+    "03-domain-setup-01.png",
+    "07-preorder-sections-01.png",
+    "08-countdown-prelaunch-01.png"
   ],
-  "videos": [],
-  "updatedAt": 1789893605132
+  "videos": [
+    "04-quick-size-guide.mp4",
+    "05-scroll-based-animations.mp4",
+    "06-scrub-based-animation.mp4"
+  ],
+  "updatedAt": 1789894417297
 }
