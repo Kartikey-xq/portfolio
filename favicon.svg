@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#09090b"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#27272a"/>
+  <!-- Liquid droplet / Shopify-inspired subtle accent -->
+  <path d="M16 7C16 7 9 15.5 9 19.5C9 23.366 12.134 26.5 16 26.5C19.866 26.5 23 23.366 23 19.5C23 15.5 16 7 16 7Z" fill="url(#grad)" opacity="0.9"/>
+  <!-- Code bracket hint -->
+  <path d="M13.5 18L11.5 20L13.5 22" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.5 18L20.5 20L18.5 22" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="grad" x1="9" y1="7" x2="23" y2="26.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#f43f5e"/>
+    </linearGradient>
+  </defs>
+</svg>
